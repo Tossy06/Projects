@@ -13,15 +13,6 @@ document.addEventListener('DOMContentLoaded', function (){
         
     }
 
-    // Escuchar mensajes del mapa
-    window.addEventListener('message', function(event) {
-        if (event.data.type === 'mapClick') {
-            document.getElementById('latitud').value = event.data.lat;
-            document.getElementById('longitud').value = event.data.lng;
-            mostrarForm();
-        }
-    });
-
     createHistory.addEventListener('click', mostrarForm);
     cancelar.addEventListener('click', ocultar);
     

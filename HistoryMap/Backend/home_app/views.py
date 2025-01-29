@@ -74,6 +74,9 @@ def generar_mapa():
         folium.LatLngPopup()
     )
 
+    
+
+
     formatter = "function(num) {return L.Util.formatNum(num, 3) + ' &deg; ';};"
 
     MousePosition(
@@ -90,12 +93,15 @@ def generar_mapa():
     
     # Agrega un marcador al mapa
     stories = Stories.objects.all()
+    #icon = folium.CustomIcon()
     for story in stories:
         location = [story.latitud, story.longitud]
         folium.Marker(
             location=location,
             popup=folium.Popup(f"<b>{story.history_name}</b><br>{story.descripcion}", max_width=300),
-            icon=folium.Icon(color="green", icon="info-sign")
+            icon=folium.Icon(color="green", icon="info-sign"),
+            
         ).add_to(mapa)
+    
 
     return mapa._repr_html_()
