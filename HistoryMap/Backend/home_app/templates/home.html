@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Interactivo</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles/home.css' %}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+</head>
+<body>
+    <div id="container">
+        
+        <aside class="form-container">
+            <h1>Mapa Interactivo</h1>
+            <h2>Hola {{user_name}}</h2>
+            <button type="button" id="create-History">Crear historia</button>
+            <form method="POST" id="story-form">
+                {% csrf_token %}
+                <input type="text" class ='imput-form' name="history_name" id="history_name" placeholder="Nombre de la historia" required>
+                <textarea name="descripcion" class ='imput-form' id="descripcion" placeholder="Descripción" required></textarea>
+                <input type="text" class ='imput-form' name="latitud" id="latitud">
+                <input type="text" class ='imput-form' name="longitud" id="longitud">
+                <button class ='imput-form' type="submit">Guardar</button>
+                <button class ='imput-form' type="button" id="cancel-button">Cancelar</button>
+            </form>
+        </aside>
+        <div class = 'folium-map' id="map_{div_id}">
+            {{ mapa|safe }}
+        </div>
+    </div>
+    <script src="{% static 'js/home.js' %}"></script>
+</body>
+</html>

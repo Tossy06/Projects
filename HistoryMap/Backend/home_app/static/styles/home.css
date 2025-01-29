@@ -1,0 +1,74 @@
+/* Ocultar el formulario inicialmente */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body,
+html {
+    height: 100%;
+}
+#container {
+    display: flex;
+    height: 100vh; /* Asegura que ocupe toda la altura de la ventana */
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    width: 250px; 
+    height: 100vh;
+    padding: 5px;
+    position: fixed; 
+}
+
+.folium-map{
+    flex: 1; /* Ocupa el espacio restante */
+    color: white;
+    margin-left: 250px; /* Deja espacio suficiente para el ancho del aside */
+    height: 100vh; 
+    flex-direction: column;
+}
+
+.imput-form{
+    background: rgba(34, 34, 34, 0.5);
+    color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    
+}
+.imput-form::placeholder{
+    color: white;
+}
+
+
+#story-form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 5px;
+    z-index: 1000;
+}
+#story-form button{
+    cursor: pointer;
+}
+#story-form button:hover{
+    background-color: rgba(59, 59, 59, 0.9);
+}
+
+#create-History{
+    cursor: pointer;
+    background: transparent;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+}
+#create-History:hover{
+    background-color: rgba(59, 59, 59, 0.9);
+
+}

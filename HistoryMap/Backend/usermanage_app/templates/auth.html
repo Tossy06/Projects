@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/auth.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="content">
+        <div class="change">
+            <button id="login-change">login</button>
+            <button id="register-change">Register</button>
+        </div>
+        <div class="form-content">
+            <form id="register" class="input-group" method="POST" action="{% url 'register-login' %}">
+                {% csrf_token %}
+                <input type="text" class="input-field" placeholder="Username" name="user_name" required>
+                <input type="email" class="input-field" placeholder="Email" name="email" required>
+                <input type="password" class="input-field" placeholder="Password" name="password" required>
+                <button type="submit" class="btn-register-login">Registrar</button>
+            </form>
+
+            <form id="login" class="input-group" method="POST" action="{% url 'home' %}">
+                {% csrf_token %}
+                <input type="text" class="input-field" placeholder="Username" name="user_name" required>
+                <input type="password" class="input-field" placeholder="Password" name="password" required>
+                <button type="submit" class="btn-register-login">Ingresar</button>
+            </form>
+        </div>
+    </div>
+    <script src="{% static 'js/auth.js' %}"></script>
+</body>
+</html>
