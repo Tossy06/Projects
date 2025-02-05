@@ -1,0 +1,68 @@
+/* styles.css */
+* {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+body{
+    background: #10181f ;
+    color: white;
+}
+.table-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 50px;
+}
+
+.table-data{
+    width: 600px;
+    border-collapse: collapse;
+    max-height: 275px; /* Altura máxima de la tabla */
+    overflow-y: auto; /* Scroll vertical */
+    display: block;
+    text-align: left;
+    overflow-y: auto; /* Scroll vertical */
+    overflow-x: hidden; /* Oculta el scroll horizontal */
+    text-overflow: ellipsis;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    
+}
+
+/* Personalización del scrollbar */
+.table-data::-webkit-scrollbar {
+    width: 12px; 
+    background-color: transparent;
+}
+.table-data::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 10px;
+    border: 3px solid #f1f1f1; 
+}
+.table-container::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+.table-data th {
+    padding: 10px;
+    border: 1px solid #cccccc44;
+    background-color: #1b2631;
+    color: #ccccccbd;
+    text-align: center;
+
+}
+
+.table-data td {
+    padding: 10px;
+    border: 1px solid #cccccc44;
+    background-color: #101720;
+}
+
+
+.table-data tr:hover {
+    background-color: #f1f1f1;
+}
+

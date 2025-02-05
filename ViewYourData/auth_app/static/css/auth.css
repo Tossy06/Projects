@@ -1,0 +1,97 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Helvetica", sans-serif;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    gap: 5px;
+    background: #ccc;
+}
+
+.change {
+    margin: 10px;
+}
+
+.change button {
+    cursor: pointer;
+    color: black;
+    font-weight: bold;
+    width: 75px;
+    margin: 5px;
+    padding: 10px;
+    outline: none;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    background-color: transparent;
+
+}
+
+.change button:hover {
+    background: rgb(219, 219, 219);
+}
+
+.form-content {
+    background: #ccc;
+    padding: 15px;
+    position: relative;
+    width: 200px;  /* Ancho fijo para los formularios */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;  /* Aumenta el espacio entre los elementos */
+    border-radius: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.input-group{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    
+}
+
+/* Elimina cualquier flex en los formularios */
+.input-field{
+    display: flex;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    outline: none;
+}
+
+
+.btn-register-login {
+    padding: 10px;
+    outline: none;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    width: 100%;  /* Botón ocupa el ancho completo */
+    background: black;
+    color: #ccc;
+}
+
+.btn-register-login:hover {
+    background: rgb(56, 56, 56);
+}
+
+/* Animación para el fade-in */
+.fade-in {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
