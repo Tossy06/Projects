@@ -22,16 +22,16 @@
                 {% csrf_token %}
                 <input type="text" class ='imput-form' name="history_name" id="history_name" placeholder="Nombre de la historia" required>
                 <textarea name="descripcion" class ='imput-form' id="descripcion" placeholder="Descripción" required></textarea>
-                <input type="text" class ='imput-form' name="latitud" id="latitud">
-                <input type="text" class ='imput-form' name="longitud" id="longitud">
+                <input type="text" class="imput-form" name="latitud" id="latitud" placeholder="Latitud" required readonly>
+                <input type="text" class="imput-form" name="longitud" id="longitud" placeholder="Longitud" required readonly>
                 <button class ='imput-form' type="submit">Guardar</button>
                 <button class ='imput-form' type="button" id="cancel-button">Cancelar</button>
             </form>
         </aside>
-        <div class = 'folium-map' id="map_{div_id}">
+        <div class = 'folium-map' id="map_id">
             {{ mapa|safe }}
         </div>
     </div>
-    <script src="{% static 'js/home.js' %}"></script>
+    <script src="{% static 'js/map.js' %}"></script>
 </body>
 </html>

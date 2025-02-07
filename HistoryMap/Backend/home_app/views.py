@@ -33,7 +33,6 @@ def home(request):
             'user_name': user_name
         }
 
-
     
         if request.method == 'POST':
             history_name = request.POST.get('history_name')
@@ -41,8 +40,10 @@ def home(request):
             latitud = request.POST.get('latitud')
             longitud = request.POST.get('longitud')
 
+            print(f"Datos recibidos: {history_name}, {descripcion}, {latitud}, {longitud}") 
+
             try:
-                new_history = Stories(history_name = history_name, descripcion = descripcion, latitud = latitud, longitud = longitud, user_name = user)
+                new_history = Stories(history_name=history_name, descripcion=descripcion, latitud=latitud, longitud=longitud, user_name=user)
                 new_history.save()
                 print('Se guardooo')
                 messages.success(request, 'Nota agregada con éxito')
@@ -63,8 +64,8 @@ def generar_mapa():
     # Crea un mapa centrado en una ubicación (ejemplo: Bogotá, Colombia)
     mapa = folium.Map(
         location=location, 
-        zoom_start=3,
-        min_zoom=2, 
+        zoom_start=2,
+        min_zoom=1.5, 
         tiles="CartoDB Dark_Matter",
         no_wrap=True,
         max_bounds=True, 
@@ -74,10 +75,13 @@ def generar_mapa():
         folium.LatLngPopup()
     )
 
+    # Agrega un manejador de eventos de clic en el mapa
+    mapa.add_child(folium.ClickForMarker(popup="Coordenadas"))
     
 
-
     formatter = "function(num) {return L.Util.formatNum(num, 3) + ' &deg; ';};"
+    lat_formatter = formatter;
+    lng_formatter = formatter;
 
     MousePosition(
         position="topright",
@@ -86,9 +90,10 @@ def generar_mapa():
         lng_first=True,
         num_digits=20,
         prefix="Coordinates:",
-        lat_formatter=formatter,
-        lng_formatter=formatter,
+        lat_formatter=lat_formatter,
+        lng_formatter=lng_formatter,
     ).add_to(mapa)
+    
 
     
     # Agrega un marcador al mapa
@@ -102,6 +107,9 @@ def generar_mapa():
             icon=folium.Icon(color="green", icon="info-sign"),
             
         ).add_to(mapa)
+
+
+    
     
 
     return mapa._repr_html_()
